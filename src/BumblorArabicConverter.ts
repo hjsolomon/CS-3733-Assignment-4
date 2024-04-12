@@ -30,7 +30,10 @@ export function bumblor2arabic(Bumblor: string): number {
 }
 
 export function arabic2bumblor(arabic: number): string {
-    let increment = arabic;
+    let dCounter = 0, lCounter = 0, vCounter = 0;
+
+
+    let increment = Math.trunc(arabic);
     let bumblor = "";
     let positive = true;
     if (increment < 0) positive = false;
@@ -38,6 +41,8 @@ export function arabic2bumblor(arabic: number): string {
     increment = Math.abs(arabic);
 
     while (increment >= 0) {
+        if(dCounter > 1 || lCounter > 1 || vCounter > 1) throw new Error("MalformedNumber");
+
         if (increment >= 1000) {
             bumblor += "M";
             increment -= 1000;
@@ -46,6 +51,7 @@ export function arabic2bumblor(arabic: number): string {
         if (increment >=  500) {
             bumblor += "D";
             increment -= 500;
+            dCounter++;
             continue;
 
         }
@@ -58,6 +64,7 @@ export function arabic2bumblor(arabic: number): string {
         if (increment >=  50) {
             bumblor += "L";
             increment -= 50;
+            lCounter++;
             continue;
 
         }
@@ -70,6 +77,7 @@ export function arabic2bumblor(arabic: number): string {
         if (increment >=  5) {
             bumblor += "V";
             increment -= 5;
+            vCounter++;
             continue;
 
         }
