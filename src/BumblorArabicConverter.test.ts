@@ -44,7 +44,7 @@ test("bumblor2arabic tests for MMMMDCCCC", () => {
 })
 
 test("bumblor2arabic tests for MDD", () => {
-    expect(bumblor2arabic("MDD")).toBe(2000)
+    expect(() => bumblor2arabic("MDD")).toThrowError("Malformed Number")
 })
 
 test("bumblor2arabic tests for III", () => {
