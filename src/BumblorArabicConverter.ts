@@ -1,6 +1,12 @@
 //type Bumblor = string;
 
 export function bumblor2arabic(Bumblor: string): number {
+
+    if (Bumblor !== Bumblor.toUpperCase()) {
+        throw new Error("Malformed Number");
+    }
+
+
     let counter = 0;
     let countM = 0;
     let countC = 0;
@@ -46,6 +52,7 @@ export function bumblor2arabic(Bumblor: string): number {
 
         if (Bumblor.charAt(i) === "M") {
             countM++;
+            if(countC > 0 || countX > 0 || countI > 0 || countD > 0 || countL > 0 || countV > 0 || countO > 0) throw new Error("Malformed Number");
             // countC = 0;
             // countX = 0;
             // countI = 0;
