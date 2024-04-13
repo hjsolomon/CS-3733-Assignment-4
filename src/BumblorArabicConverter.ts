@@ -1,4 +1,4 @@
-type Bumblor = string;
+//type Bumblor = string;
 
 export function bumblor2arabic(Bumblor: string): number {
     let counter = 0;
@@ -11,13 +11,13 @@ export function bumblor2arabic(Bumblor: string): number {
     let countV = 0;
     let countO = 0;
 
-    let posM = Bumblor.search("M");
-    let posD = Bumblor.search("D");
-    let posC = Bumblor.search("C");
-    let posL = Bumblor.search("L");
-    let posX = Bumblor.search("X");
-    let posV = Bumblor.search("V");
-    let posI = Bumblor.search("I");
+    // let posM = Bumblor.search("M");
+    // let posD = Bumblor.search("D");
+    // let posC = Bumblor.search("C");
+    // let posL = Bumblor.search("L");
+    // let posX = Bumblor.search("X");
+    // let posV = Bumblor.search("V");
+    // let posI = Bumblor.search("I");
 
     // if (!(posD === -1) && !(posM < posD)) {
     //     throw new Error("Malformed Number");
@@ -225,6 +225,9 @@ export function arabic2bumblor(arabic: number): string {
     if (-4999 > arabic || arabic > 4999) {
         throw new Error("Out of Range");
     }
+    if (arabic === 0) {
+        return "O"
+    }
 
     let increment = Math.trunc(arabic);
     let bumblor = "";
@@ -282,11 +285,9 @@ export function arabic2bumblor(arabic: number): string {
 
         }
         if (increment === 0) {
-            bumblor += "O";
             break;
         }
     }
-
     if (!positive) bumblor = "-" + bumblor;
     return bumblor;
 
