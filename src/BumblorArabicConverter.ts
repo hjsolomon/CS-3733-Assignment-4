@@ -11,90 +11,185 @@ export function bumblor2arabic(Bumblor: string): number {
     let countV = 0;
     let countO = 0;
 
+    let posM = Bumblor.search("M");
+    let posD = Bumblor.search("D");
+    let posC = Bumblor.search("C");
+    let posL = Bumblor.search("L");
+    let posX = Bumblor.search("X");
+    let posV = Bumblor.search("V");
+    let posI = Bumblor.search("I");
+
+    // if (!(posD === -1) && !(posM < posD)) {
+    //     throw new Error("Malformed Number");
+    // }
+    // if (!(posC === -1) && !(posD < posC)) {
+    //     throw new Error("Malformed Number");
+    // }
+    // if (!(posL === -1) && !(posC < posL)) {
+    //     throw new Error("Malformed Number");
+    // }
+    // if (!(posX === -1) && !(posL < posX)) {
+    //     throw new Error("Malformed Number");
+    // }
+    // if (!(posV === -1) && !(posX < posV)) {
+    //     throw new Error("Malformed Number");
+    // }
+    // if (!(posV === -1) && !(posV < posI)) {
+    //     throw new Error("Malformed Number");
+    // }
+
+
     for (let i = 0; i < Bumblor.length; i++) {
         if (Bumblor.charAt(i) === undefined && !(Bumblor.charAt(i) === "M") && !(Bumblor.charAt(i) === "C") && !(Bumblor.charAt(i) === "X") && !(Bumblor.charAt(i) === "I") && !(Bumblor.charAt(i) === "D") && !(Bumblor.charAt(i) === "L") && !(Bumblor.charAt(i) === "V") && !(Bumblor.charAt(i) === "O")) {
             throw new Error("Malformed Number");
         }
+
         if (Bumblor.charAt(i) === "M") {
             countM++;
-            countC = 0;
-            countX = 0;
-            countI = 0;
-            countD = 0;
-            countL = 0;
-            countV = 0;
-            countO = 0;
+            // countC = 0;
+            // countX = 0;
+            // countI = 0;
+            // countD = 0;
+            // countL = 0;
+            // countV = 0;
+            // countO = 0;
 
         }
         if (Bumblor.charAt(i) === "C") {
             countC++;
-            countM = 0;
-            countX = 0;
-            countI = 0;
-            countD = 0;
-            countL = 0;
-            countV = 0;
-            countO = 0;
+            if (!(Bumblor.search("M") < Bumblor.search("C"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("D") < Bumblor.search("C"))) {
+                throw new Error("Malformed Number");
+            }
+            // countM = 0;
+            // countX = 0;
+            // countI = 0;
+            // countD = 0;
+            // countL = 0;
+            // countV = 0;
+            // countO = 0;
         }
         if (Bumblor.charAt(i) === "X") {
             countX++;
-            countM = 0;
-            countC = 0;
-            countI = 0;
-            countD = 0;
-            countL = 0;
-            countV = 0;
-            countO = 0;
+            if (!(Bumblor.search("M") < Bumblor.search("X"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("D") < Bumblor.search("X"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("C") < Bumblor.search("X"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("L") < Bumblor.search("X"))) {
+                throw new Error("Malformed Number");
+            }
+            // countM = 0;
+            // countC = 0;
+            // countI = 0;
+            // countD = 0;
+            // countL = 0;
+            // countV = 0;
+            // countO = 0;
         }
         if (Bumblor.charAt(i) === "I") {
             countI++;
-            countM = 0;
-            countC = 0;
-            countX = 0;
-            countD = 0;
-            countL = 0;
-            countV = 0;
-            countO = 0;
+            if (!(Bumblor.search("M") < Bumblor.search("I"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("D") < Bumblor.search("I"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("C") < Bumblor.search("I"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("L") < Bumblor.search("I"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("X") < Bumblor.search("I"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("V") < Bumblor.search("I"))) {
+                throw new Error("Malformed Number");
+            }
+            // countM = 0;
+            // countC = 0;
+            // countX = 0;
+            // countD = 0;
+            // countL = 0;
+            // countV = 0;
+            // countO = 0;
         }
         if (Bumblor.charAt(i) === "D") {
             countD++;
-            countM = 0;
-            countC = 0;
-            countX = 0;
-            countI = 0;
-            countL = 0;
-            countV = 0;
-            countO = 0;
+            if (!(Bumblor.search("M") < Bumblor.search("D"))) {
+                throw new Error("Malformed Number");
+            }
+            // countM = 0;
+            // countC = 0;
+            // countX = 0;
+            // countI = 0;
+            // countL = 0;
+            // countV = 0;
+            // countO = 0;
         }
         if (Bumblor.charAt(i) === "L") {
             countL++;
-            countM = 0;
-            countC = 0;
-            countX = 0;
-            countI = 0;
-            countD = 0;
-            countV = 0;
-            countO = 0;
+            if (!(Bumblor.search("M") < Bumblor.search("L"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("D") < Bumblor.search("L"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("C") < Bumblor.search("L"))) {
+                throw new Error("Malformed Number");
+            }
+            // countM = 0;
+            // countC = 0;
+            // countX = 0;
+            // countI = 0;
+            // countD = 0;
+            // countV = 0;
+            // countO = 0;
         }
         if (Bumblor.charAt(i) === "V") {
             countV++;
-            countM = 0;
-            countC = 0;
-            countX = 0;
-            countI = 0;
-            countD = 0;
-            countL = 0;
-            countO = 0;
+            if (!(Bumblor.search("M") < Bumblor.search("V"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("D") < Bumblor.search("V"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("C") < Bumblor.search("V"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("L") < Bumblor.search("V"))) {
+                throw new Error("Malformed Number");
+            }
+            if (!(Bumblor.search("X") < Bumblor.search("V"))) {
+                throw new Error("Malformed Number");
+            }
+            // countM = 0;
+            // countC = 0;
+            // countX = 0;
+            // countI = 0;
+            // countD = 0;
+            // countL = 0;
+            // countO = 0;
         }
         if (Bumblor.charAt(i) === "O") {
+            if (!(Bumblor.length === 1)){
+                throw new Error("Malformed Number");
+            }
             countO++;
-            countM = 0;
-            countC = 0;
-            countX = 0;
-            countI = 0;
-            countD = 0;
-            countL = 0;
-            countV = 0;
+            // countM = 0;
+            // countC = 0;
+            // countX = 0;
+            // countI = 0;
+            // countD = 0;
+            // countL = 0;
+            // countV = 0;
         }
         if (countM > 4 || countC > 4 || countX > 4 || countI > 4 || countD > 1 || countL > 1 || countV > 1 || countO > 1) {
             throw new Error("Malformed Number");
@@ -128,7 +223,7 @@ export function bumblor2arabic(Bumblor: string): number {
 export function arabic2bumblor(arabic: number): string {
     let dCounter = 0, lCounter = 0, vCounter = 0;
     if (-4999 > arabic || arabic > 4999) {
-        throw new Error("Malformed Number");
+        throw new Error("Out of Range");
     }
 
     let increment = Math.trunc(arabic);
