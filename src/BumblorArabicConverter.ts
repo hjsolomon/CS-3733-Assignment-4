@@ -46,7 +46,6 @@ export function bumblor2arabic(Bumblor: string): number {
 
 
     for (let i = 0; i < Bumblor.length; i++) {
-        if(countV > 1 || countD > 1 || countL > 1) throw new Error("Malformed Number");
         if (Bumblor.charAt(i) === undefined && !(Bumblor.charAt(i) === "M") && !(Bumblor.charAt(i) === "C") && !(Bumblor.charAt(i) === "X") && !(Bumblor.charAt(i) === "I") && !(Bumblor.charAt(i) === "D") && !(Bumblor.charAt(i) === "L") && !(Bumblor.charAt(i) === "V") && !(Bumblor.charAt(i) === "O")) {
             throw new Error("Malformed Number");
         }
