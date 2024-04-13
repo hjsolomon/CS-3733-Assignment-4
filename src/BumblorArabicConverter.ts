@@ -2,8 +2,104 @@ type Bumblor = string;
 
 export function bumblor2arabic(Bumblor: string): number {
     let counter = 0;
+    let countM = 0;
+    let countC = 0;
+    let countX = 0;
+    let countI = 0;
+    let countD = 0;
+    let countL = 0;
+    let countV = 0;
+    let countO = 0;
+
     for (let i = 0; i < Bumblor.length; i++) {
-        const charToNum =
+        if (Bumblor.charAt(i) === undefined && !(Bumblor.charAt(i) === "M") && !(Bumblor.charAt(i) === "C") && !(Bumblor.charAt(i) === "X") && !(Bumblor.charAt(i) === "I") && !(Bumblor.charAt(i) === "D") && !(Bumblor.charAt(i) === "L") && !(Bumblor.charAt(i) === "V") && !(Bumblor.charAt(i) === "O")) {
+            throw new Error("Malformed Number");
+        }
+        if (Bumblor.charAt(i) === "M") {
+            countM++;
+            countC = 0;
+            countX = 0;
+            countI = 0;
+            countD = 0;
+            countL = 0;
+            countV = 0;
+            countO = 0;
+
+        }
+        if (Bumblor.charAt(i) === "C") {
+            countC++;
+            countM = 0;
+            countX = 0;
+            countI = 0;
+            countD = 0;
+            countL = 0;
+            countV = 0;
+            countO = 0;
+        }
+        if (Bumblor.charAt(i) === "X") {
+            countX++;
+            countM = 0;
+            countC = 0;
+            countI = 0;
+            countD = 0;
+            countL = 0;
+            countV = 0;
+            countO = 0;
+        }
+        if (Bumblor.charAt(i) === "I") {
+            countI++;
+            countM = 0;
+            countC = 0;
+            countX = 0;
+            countD = 0;
+            countL = 0;
+            countV = 0;
+            countO = 0;
+        }
+        if (Bumblor.charAt(i) === "D") {
+            countD++;
+            countM = 0;
+            countC = 0;
+            countX = 0;
+            countI = 0;
+            countL = 0;
+            countV = 0;
+            countO = 0;
+        }
+        if (Bumblor.charAt(i) === "L") {
+            countL++;
+            countM = 0;
+            countC = 0;
+            countX = 0;
+            countI = 0;
+            countD = 0;
+            countV = 0;
+            countO = 0;
+        }
+        if (Bumblor.charAt(i) === "V") {
+            countV++;
+            countM = 0;
+            countC = 0;
+            countX = 0;
+            countI = 0;
+            countD = 0;
+            countL = 0;
+            countO = 0;
+        }
+        if (Bumblor.charAt(i) === "O") {
+            countO++;
+            countM = 0;
+            countC = 0;
+            countX = 0;
+            countI = 0;
+            countD = 0;
+            countL = 0;
+            countV = 0;
+        }
+        if (countM > 4 || countC > 4 || countX > 4 || countI > 4 || countD > 1 || countL > 1 || countV > 1 || countO > 1) {
+            throw new Error("Malformed Number");
+        }
+            const charToNum =
             Bumblor.charAt(i) === "M"
                 ? 1000
                 : Bumblor.charAt(i) === "D"
@@ -31,17 +127,20 @@ export function bumblor2arabic(Bumblor: string): number {
 
 export function arabic2bumblor(arabic: number): string {
     let dCounter = 0, lCounter = 0, vCounter = 0;
-
+    if (-4999 > arabic || arabic > 4999) {
+        throw new Error("Malformed Number");
+    }
 
     let increment = Math.trunc(arabic);
     let bumblor = "";
     let positive = true;
     if (increment < 0) positive = false;
 
-    increment = Math.abs(arabic);
+    increment = Math.abs(arabic) ;
+    increment = Math.round(increment-.5)
 
     while (increment >= 0) {
-        if(dCounter > 1 || lCounter > 1 || vCounter > 1) throw new Error("MalformedNumber");
+        if(dCounter > 1 || lCounter > 1 || vCounter > 1) throw new Error("Malformed Number");
 
         if (increment >= 1000) {
             bumblor += "M";
